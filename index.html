@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northport Soccer Parents</title>
+  <meta name="description" content="Northport Soccer Parents">
+  <!-- What shows when the link is shared in texts, email, Facebook, etc. -->
+  <meta property="og:title" content="Northport Soccer Parents">
+  <meta property="og:description" content="Northport Soccer Parents">
+  <meta property="og:type" content="website">
+  <style>
+    /* ---- Team colors: change these to match your team ---- */
+    :root {
+      --primary: #0b3d91;
+      --primary-dark: #072a66;
+      --accent: #f2b705;
+      --bg: #ffffff;
+      --bg-alt: #f4f6fa;
+      --text: #1b1f27;
+      --muted: #5b6475;
+      --radius: 12px;
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+
+    /* Title banner */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 72px 0 64px;
+    }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); margin: 0 0 8px; line-height: 1.1; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { margin: 0 auto; max-width: 620px; font-size: 1.1rem; opacity: .92; }
+
+    /* Photo + text blocks */
+    .story { padding: 64px 0; }
+    .story:nth-of-type(even) { background: var(--bg-alt); }
+    .story .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    /* alternate photo left / photo right */
+    .story:nth-of-type(even) figure { order: 2; }
+
+    figure { margin: 0; }
+    figure img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+      display: block;
+      background: #dfe4ee;
+    }
+    .story h2 { color: var(--primary); font-size: 1.9rem; margin: 0 0 12px; line-height: 1.2; }
+    .story p { margin: 0 0 14px; color: var(--text); }
+
+    footer {
+      background: var(--primary-dark); color: #cdd6e6;
+      text-align: center; padding: 24px 0; font-size: .9rem;
+    }
+
+    @media (max-width: 760px) {
+      .story { padding: 44px 0; }
+      .story .wrap { grid-template-columns: 1fr; gap: 20px; }
+      .story:nth-of-type(even) figure { order: 0; }  /* photo always on top on phones */
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <h1>NORTHPORT <span>SOCCER</span></h1>
+      <p>TODO: one-line intro for the page.</p>
+    </div>
+  </header>
+
+  <main>
+    <!--
+      Each <section class="story"> is one photo + its text.
+      To add a photo: put the file in the images/ folder, then copy a
+      section below and change the image file name, heading and text.
+      Photos alternate left/right automatically.
+    -->
+
+    <section class="story">
+      <div class="wrap">
+        <figure><img src="images/photo1.jpg" alt="TODO: describe photo 1"></figure>
+        <div>
+          <h2>Photo 1 heading</h2>
+          <p>TODO: text about this photo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story">
+      <div class="wrap">
+        <figure><img src="images/photo2.jpg" alt="TODO: describe photo 2"></figure>
+        <div>
+          <h2>Photo 2 heading</h2>
+          <p>TODO: text about this photo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story">
+      <div class="wrap">
+        <figure><img src="images/photo3.jpg" alt="TODO: describe photo 3"></figure>
+        <div>
+          <h2>Photo 3 heading</h2>
+          <p>TODO: text about this photo.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; <span id="year"></span> Northport Soccer</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
