@@ -120,7 +120,8 @@
       line-height: 1.25;
       color: var(--gold);
     }
-    .featured img.below-left { margin-top: 12px; }
+    .col { display: flex; flex-direction: column; gap: 28px; width: min(480px, 100%); }
+    .col > .featured { width: 100%; }
     .featured figcaption {
       margin-top: 10px;
       padding: 6px 4px 2px;
@@ -148,14 +149,18 @@
     <h1>NORTHPORT <span>SOCCER PARENTS</span></h1>
     <p>THIS IS HOW CLASSLESS NORTHPORT PARENTS ACT</p>
     <div class="photos">
-      <figure class="featured">
-        <h2 class="fig-title">You go to AI to create a hateful image to hurt underage girls</h2>
-        <img src="images/featured.jpg" width="1000" height="1580"
-             alt="Cartoon of tigers in Northport jerseys cutting the pink manes of crying lions on a soccer field, posted by David Stein">
-        <figcaption>West Islip Girls soccer is known as &ldquo;WIGS&rdquo; so you put a WIG on a Lion (West Islip Mascot) and cut their wig off and have it CRY</figcaption>
-        <img class="below-left" src="images/stein-sworn-in-2.jpg" width="700" height="508"
-             alt="New vice president David Stein raises his hand as he is sworn into office in the Northport school board. Photo by Wenhao Ma.">
-      </figure>
+      <div class="col">
+        <figure class="featured">
+          <h2 class="fig-title">You go to AI to create a hateful image to hurt underage girls</h2>
+          <img src="images/featured.jpg" width="1000" height="1580"
+               alt="Cartoon of tigers in Northport jerseys cutting the pink manes of crying lions on a soccer field, posted by David Stein">
+          <figcaption>West Islip Girls soccer is known as &ldquo;WIGS&rdquo; so you put a WIG on a Lion (West Islip Mascot) and cut their wig off and have it CRY</figcaption>
+        </figure>
+        <figure class="featured">
+          <img src="images/stein-sworn-in-2.jpg" width="700" height="508"
+               alt="New vice president David Stein raises his hand as he is sworn into office in the Northport school board. Photo by Wenhao Ma.">
+        </figure>
+      </div>
       <figure class="featured">
         <img src="images/stein-sworn-in.jpg" width="1060" height="880"
              alt="David Stein being sworn in as Vice President of the Board of Education">
