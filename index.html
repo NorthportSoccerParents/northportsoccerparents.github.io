@@ -9,129 +9,142 @@
   <meta property="og:title" content="Northport Soccer Parents">
   <meta property="og:description" content="Northport Soccer Parents">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://northportsoccerparents.github.io/images/background-tile.jpg">
   <style>
-    /* ---- Team colors: change these to match your team ---- */
+    /* ---- Colors: blue & gold ---- */
     :root {
-      --primary: #0b3d91;
-      --primary-dark: #072a66;
-      --accent: #f2b705;
-      --bg: #ffffff;
-      --bg-alt: #f4f6fa;
-      --text: #1b1f27;
-      --muted: #5b6475;
-      --radius: 12px;
-      --max: 1100px;
+      --gold: #f5c518;
+      --blue: #0a204e;
     }
 
     * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
       margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-    }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
-
-    /* Title banner */
-    .hero {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: #fff;
-      text-align: center;
-      padding: 72px 0 64px;
+      background: var(--blue);
     }
-    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); margin: 0 0 8px; line-height: 1.1; }
-    .hero h1 span { color: var(--accent); }
-    .hero p { margin: 0 auto; max-width: 620px; font-size: 1.1rem; opacity: .92; }
 
-    /* Photo + text blocks */
-    .story { padding: 64px 0; }
-    .story:nth-of-type(even) { background: var(--bg-alt); }
-    .story .wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+    /* Background: the same photo (with the creator's name under it)
+       repeated across the whole page. Change --tile to make the
+       copies bigger or smaller. Fixed layer so it works on iPhones. */
+    body::before {
+      --tile: 260px;
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: url("images/background-tile.jpg") top center / var(--tile) auto repeat;
+    }
+    @media (max-width: 760px) { body::before { --tile: 170px; } }
+
+    /* Title: each line sits on a snug solid-blue label that hugs the
+       words only (not a big box), with a gold edge, so it reads
+       clearly over the busy photos. */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 16px;
     }
-    /* alternate photo left / photo right */
-    .story:nth-of-type(even) figure { order: 2; }
+    .hero h1, .hero p {
+      margin: 0;
+      max-width: 100%;
+      background: var(--blue);
+      border: 3px solid var(--gold);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.7);
+      font-weight: 900;
+      letter-spacing: .03em;
+    }
+    .hero h1 {
+      padding: .15em .45em;
+      font-size: clamp(2.2rem, 8vw, 5rem);
+      line-height: 1.1;
+      color: #fff;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p {
+      margin-top: 18px;
+      padding: .35em .8em;
+      font-size: clamp(1.25rem, 4vw, 2.2rem);
+      line-height: 1.25;
+      color: var(--gold);
+    }
 
-    figure { margin: 0; }
-    figure img {
+    /* Featured photos under the title: side by side on computers,
+       stacked on phones */
+    .photos {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
       width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border-radius: var(--radius);
-      box-shadow: 0 6px 20px rgba(0,0,0,.12);
-      display: block;
-      background: #dfe4ee;
     }
-    .story h2 { color: var(--primary); font-size: 1.9rem; margin: 0 0 12px; line-height: 1.2; }
-    .story p { margin: 0 0 14px; color: var(--text); }
+    .featured {
+      margin: 0;
+      width: min(480px, 100%);
+      padding: 8px;
+      background: var(--blue);
+      border: 4px solid var(--gold);
+      border-radius: 14px;
+      box-shadow: 0 0 0 4px var(--blue), 0 16px 40px rgba(0,0,0,.8);
+    }
+    .featured img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .featured figcaption {
+      margin-top: 10px;
+      padding: 6px 4px 2px;
+      font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+      font-weight: 900;
+      line-height: 1.25;
+      color: var(--gold);
+    }
 
     footer {
-      background: var(--primary-dark); color: #cdd6e6;
-      text-align: center; padding: 24px 0; font-size: .9rem;
-    }
-
-    @media (max-width: 760px) {
-      .story { padding: 44px 0; }
-      .story .wrap { grid-template-columns: 1fr; gap: 20px; }
-      .story:nth-of-type(even) figure { order: 0; }  /* photo always on top on phones */
+      align-self: center;
+      margin: 0 16px 14px;
+      padding: 6px 14px;
+      font-size: .9rem;
+      font-weight: 700;
+      background: var(--blue);
+      border: 2px solid var(--gold);
+      border-radius: 999px;
     }
   </style>
 </head>
 <body>
 
   <header class="hero">
-    <div class="wrap">
-      <h1>NORTHPORT <span>SOCCER</span></h1>
-      <p>TODO: one-line intro for the page.</p>
+    <h1>NORTHPORT <span>SOCCER PARENTS</span></h1>
+    <p>THIS IS HOW CLASSLESS NORTHPORT PARENTS ACT</p>
+    <div class="photos">
+      <figure class="featured">
+        <img src="images/featured.jpg" width="1000" height="1580"
+             alt="Cartoon of tigers in Northport jerseys cutting the pink manes of crying lions on a soccer field, posted by David Stein">
+      </figure>
+      <figure class="featured">
+        <img src="images/stein-sworn-in.jpg" width="1060" height="880"
+             alt="David Stein being sworn in as Vice President of the Board of Education">
+        <figcaption>David Stein, this is how we act?</figcaption>
+      </figure>
     </div>
   </header>
 
-  <main>
-    <!--
-      Each <section class="story"> is one photo + its text.
-      To add a photo: put the file in the images/ folder, then copy a
-      section below and change the image file name, heading and text.
-      Photos alternate left/right automatically.
-    -->
-
-    <section class="story">
-      <div class="wrap">
-        <figure><img src="images/photo1.jpg" alt="TODO: describe photo 1"></figure>
-        <div>
-          <h2>Photo 1 heading</h2>
-          <p>TODO: text about this photo.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="story">
-      <div class="wrap">
-        <figure><img src="images/photo2.jpg" alt="TODO: describe photo 2"></figure>
-        <div>
-          <h2>Photo 2 heading</h2>
-          <p>TODO: text about this photo.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="story">
-      <div class="wrap">
-        <figure><img src="images/photo3.jpg" alt="TODO: describe photo 3"></figure>
-        <div>
-          <h2>Photo 3 heading</h2>
-          <p>TODO: text about this photo.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">&copy; <span id="year"></span> Northport Soccer</div>
-  </footer>
+  <footer>&copy; <span id="year"></span> Northport Soccer Parents</footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
