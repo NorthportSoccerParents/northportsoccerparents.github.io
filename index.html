@@ -131,6 +131,22 @@
       color: var(--gold);
     }
 
+    /* Section title (e.g. above the DeMarco photos) - same look as the line under the page title */
+    .section-title {
+      margin: 48px 0 0;
+      max-width: 100%;
+      padding: .35em .8em;
+      background: var(--blue);
+      border: 3px solid var(--gold);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.7);
+      font-size: clamp(1.25rem, 4vw, 2.2rem);
+      font-weight: 900;
+      letter-spacing: .03em;
+      line-height: 1.25;
+      color: var(--gold);
+    }
+
     footer {
       align-self: center;
       margin: 0 16px 14px;
@@ -172,6 +188,7 @@
     </div>
 
     <!-- Brett DeMarco section -->
+    <h2 class="section-title">LET&rsquo;S NOT FORGET ABOUT THIS CLASSLESS PARENT</h2>
     <div class="photos">
       <figure class="featured">
         <img src="images/demarco-comment.jpg" width="1206" height="1571"
